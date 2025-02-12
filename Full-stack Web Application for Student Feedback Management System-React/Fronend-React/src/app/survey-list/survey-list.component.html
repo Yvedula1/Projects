@@ -1,0 +1,51 @@
+<!-- visual representation of survey data in a tabular format, providing buttons for actions like updating or deleting individual survey entries. -->
+
+
+
+<div class="table-container">
+    <h2>Surveys List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Street Address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip</th>
+          <th>Telephone Number</th>
+          <th>Email</th>
+          <th>Date of Survey</th>
+          <th>Liked Most About Campus</th>
+          <th>How Became Interested</th>
+          <th>Likelihood of Recommending</th>
+          <th>Additional Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let survey of surveys">
+          
+            <td>{{ survey.id }}</td>
+            <td>{{ survey.firstName }}</td>
+            <td>{{ survey.lastName }}</td>
+            <td>{{ survey.streetAddress }}</td>
+            <td>{{ survey.city }}</td>
+            <td>{{ survey.state }}</td>
+            <td>{{ survey.zip }}</td>
+            <td>{{ survey.telephoneNumber }}</td>
+            <td>{{ survey.email }}</td>
+            <td>{{ survey.dateOfSurvey }}</td>
+            <td>{{ survey.likedAboutCampus }}</td>
+            <td>{{ survey.interestSource }}</td>
+            <td>{{ survey.likelihoodToRecommend }}</td>
+            <td>{{ survey.additionalComments }}</td>
+            <td><button type="update" (click)="goToUpdateForm(survey.id)">Update</button></td>
+            <td><button type="delete" (click)="deleteForm(survey.id)">delete</button></td>
+
+          </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  

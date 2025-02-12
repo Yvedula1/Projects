@@ -1,0 +1,149 @@
+<form  [formGroup]="surveyForm" (ngSubmit)="submitForm()">
+    <div class="container mt-5">
+          
+
+      <div *ngIf="surveyForm.get('firstName')">
+        <label for="firstName">First Name</label>
+  <input type="text" id="firstName" formControlName="firstName"  required />
+  <div *ngIf=  "!surveyForm.get('firstName')?.valid && surveyForm.get('firstName')?.touched"  class="error">
+       please enter a valid first name
+  </div>
+  
+      </div>
+      <div *ngIf="surveyForm.get('lastName')">
+        <label for="lastName">Last Name</label>
+  <input type="text" id="lastName" formControlName="lastName" required />
+  <div *ngIf=  "!surveyForm.get('lastName')?.valid && surveyForm.get('lastName')?.touched" class="error">
+    please enter a valid last name
+  </div>
+      </div>
+      <div *ngIf="surveyForm.get('streetAddress')">
+        <label for="streetAddress">streetAddress</label>
+  <input type="text" id="streetAddress" formControlName="streetAddress" required >
+  <div *ngIf=  "!surveyForm.get('streetAddress')?.valid && surveyForm.get('streetAddress')?.touched"  class="error">
+    please enter a valid streetAddress name
+  </div>
+       
+      </div>
+      <div *ngIf="surveyForm.get('city')">
+        <label for="city">City</label>
+        <input type="text" id="city" formControlName="city"  required>
+        <div *ngIf=  "!surveyForm.get('city')?.valid && surveyForm.get('city')?.touched"  class="error">
+          please enter a valid city name
+        </div>
+      </div>
+      <div *ngIf="surveyForm.get('state')">
+        <label for="state">State</label>
+        <input type="text" id="state" formControlName="state" required>
+        <div *ngIf=  "!surveyForm.get('state')?.valid && surveyForm.get('city')?.touched"  class="error">
+          please enter a valid state name
+        </div>
+      </div>
+      <div *ngIf="surveyForm.get('zip')">
+        <label for="zip">ZIP</label>
+        <input type="text" id="zip" formControlName="zip" required>
+        <div *ngIf=  "!surveyForm.get('zip')?.valid && surveyForm.get('zip')?.touched"  class="error">
+          please enter a valid zip 
+        </div>
+      </div>
+      <div *ngIf="surveyForm.get('telephoneNumber')">
+        <label for="telephoneNumber">Telephone:</label>
+        <input type="tel" id="telephoneNumber" formControlName="telephoneNumber" required>
+        <div *ngIf=  "!surveyForm.get('telephoneNumber')?.valid && surveyForm.get('telephoneNumber')?.touched"  class="error">
+          please enter a valid telephone 
+        </div>
+      </div>
+      <div *ngIf="surveyForm.get('email')">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" formControlName="email"  required>
+        <div *ngIf=  "!surveyForm.get('email')?.valid && surveyForm.get('email')?.touched"  class="error">
+          please enter a valid email 
+        </div>
+      </div>
+      <div *ngIf="surveyForm.get('dateOfSurvey')">
+        <label for="dateOfSurvey">Date of Survey</label>
+        <input type="text" id="dateOfSurvey" formControlName="dateOfSurvey"  required>
+        <div *ngIf=  "!surveyForm.get('dateOfSurvey')?.valid && surveyForm.get('dateOfSurvey')?.touched"   class="error">
+          please enter a valid dateOfSurvey 
+        </div>
+      </div>
+  
+      
+      <div class="form-group">
+        <label>What did you like most about the campus?</label>
+        <br>
+        <li *ngFor="let item of likesOptions; let i = index" formArrayName="likesOptions">
+          <input type="checkbox" [formControlName]="i">{{item.label}}
+        </li>
+
+      </div>
+    
+  
+     <div>
+     
+        <label>How Became Interested <span class="required-field">*</span></label><br />
+        <div class="inline">
+         
+          <input
+            type="radio"
+            id="friends"
+            formControlName="interestSource"
+            value="friends"
+           
+            
+          />
+          <label for="friends">Friends</label><br />
+          <input
+            type="radio"
+            id="television"
+            formControlName="interestSource"
+            value="television"
+            
+           
+          />
+          <label for="television">Television</label><br />
+          <input
+            type="radio"
+            id="internet"
+            formControlName="interestSource"
+            value="internet"
+           
+           
+          />
+          <label for="internet">Internet</label><br />
+          <input
+            type="radio"
+            id="other"
+            formControlName="interestSource"
+            value="other"
+            
+            
+          />
+          <label for="other">Other</label><br />
+        </div>
+        <div
+        *ngIf=
+        "!surveyForm?.valid && surveyForm?.touched"
+        class="error"
+      >
+        Need to select  one
+      </div>
+    </div>
+  
+    <div>
+      <label>Likelihood of recommending this school:</label>
+      <select name="likelihood" id="likelihood" formControlName="likelihoodToRecommend"> 
+        <option value="Very Likely">Very Likely</option>
+        <option value="Likely">Likely</option>
+        <option value="Unlikely">Unlikely</option>
+      </select>
+    </div>
+  <div>
+    <label for="additionalComments">Additional Comments:</label>
+    <textarea id="additionalComments" formControlName="additionalComments"></textarea>
+    <!-- Use formControlName to bind the textarea to the FormControl -->
+  </div>
+  <button type="submit">Update</button>
+  </div>  
+  
+    </form>

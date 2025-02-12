@@ -1,0 +1,21 @@
+h1 {
+    color: #FFCC33; /* Text color  to yellow */
+    text-align: center;
+}
+.survey-box {
+    border: 10px solid #FFCC33;
+    padding: 10px;
+    box-shadow: 5px 5px 10px ;
+}
+
+.required {
+    color: red;
+    margin-left: 5px; /* Adjust the margin as needed */
+    display: none; /* Initially hide the asterisk */
+  }
+  
+  input.ng-invalid + .required::after {
+    content: "*";
+    display: inline;
+  }
+  
