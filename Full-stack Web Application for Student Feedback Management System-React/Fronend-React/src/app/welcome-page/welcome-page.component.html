@@ -1,0 +1,27 @@
+ <!-- html page of welcome component which redirects to other components by a button click -->
+
+
+
+<div style="text-align: center;">
+    <div style="display: flex; align-items: center; justify-content: flex-start;">
+        <img src="assets/logo.jpg" alt="George Mason Icon" style="width: 80px; height: 80px;">
+        <h1 style="color: #FFCC33; margin-left: 10px; text-align: left;">Welcome to the Survey Application</h1>
+    </div>
+</div>
+
+<h2>Welcome to SWE 642 Assignment 3. You can redirect to surveyForm and List of all surveys by using below buttons.</h2>
+
+<div>
+    <ul>
+        <li *ngFor="let name of names">{{ name }}</li>
+      </ul>
+      </div>
+<div>
+    <button (click)="navigateToSurveyForm()">Go to Survey Form</button>
+    
+</div>
+
+<div>
+    <button (click)="navigateToSurveyList()">List All Surveys</button>
+</div>
+
